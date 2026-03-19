@@ -1,0 +1,34 @@
+// src/hooks/useZones.js
+import { useState, useEffect } from 'react';
+import DataService from '../services/DataService';
+
+export function useZones() {
+  const [zones, setZones] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    loadZones();
+  }, []);
+
+  async function loadZones() {
+    try {
+      const data = await DataService.getZones();
+      setZones(data);
+      setError(null);
+    } catch (err) {
+      const errorMessage = err instanceof Error ? err.message : 'Unknown error';
+      setError(errorMessage);
+      console.error('Error loading zones:', err);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  return {
+    zones,
+    loading,
+    error,
+    refresh: loadZones
+  };
+}

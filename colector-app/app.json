@@ -1,0 +1,59 @@
+{
+  "expo": {
+    "name": "Colector",
+    "slug": "colector-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#22C55E"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.colector.app",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Colector necesita tu ubicación para mostrarte el camión más cercano a tu zona."
+      },
+      "config": {
+        "googleMapsApiKey": "TU_GOOGLE_MAPS_API_KEY"
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#22C55E"
+      },
+      "package": "com.colector.app",
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_FINE_LOCATION"
+      ],
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyBWQLap8RDZ9fUShrXFvheHBILn3ePCa4o"
+        }
+      }
+    },
+    "plugins": [
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Colector necesita tu ubicación para mostrarte el camión más cercano."
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "71c0b07a-1ddf-4cfb-9077-bd3cbc2ab2ae"
+      }
+    }
+  }
+}
